@@ -7,6 +7,7 @@
 // @match        https://www.twitch.tv/*
 // @require      https://code.jquery.com/jquery-3.3.1.slim.min.js
 // @grant        none
+// @license      MIT
 // ==/UserScript==
 
 (function() {
