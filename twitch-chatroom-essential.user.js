@@ -2,7 +2,7 @@
 // @name         Twitch Chatroom Essential
 // @namespace    https://wiki.gslin.org/wiki/TwitchChatroomEssential
 // @version      0.2018.0425
-// @description  Twitch Chatroom Essential
+// @description  Show users with badge only.
 // @author       Gea-Suan Lin <darkkiller@gmail.com>
 // @match        https://www.twitch.tv/*
 // @require      https://code.jquery.com/jquery-3.3.1.slim.min.js
