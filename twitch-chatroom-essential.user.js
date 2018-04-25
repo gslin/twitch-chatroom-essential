@@ -34,7 +34,7 @@
         });
     });
 
-    // tw-full-height tw-flex-grow-1 tw-pd-b-1
+    // TODO: Add element into the end of div.chat-input.tw-pd-b-2.tw-pd-x-2
 
     ob.observe(ctx, {
         childList: true,
