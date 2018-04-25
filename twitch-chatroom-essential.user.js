@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Twitch Chatroom Essential
 // @namespace    https://wiki.gslin.org/wiki/TwitchChatroomEssential
-// @version      0.2018.0425
+// @version      0.2018.0426
 // @description  Show users with badge only.
 // @author       Gea-Suan Lin <darkkiller@gmail.com>
 // @match        https://www.twitch.tv/*
@@ -13,14 +13,36 @@
 (function() {
     'use strict';
 
+    let toggle_css = document.createElement('style');
+    document.getElementsByTagName('head')[0].appendChild(toggle_css);
+
     let sheet = document.createElement('style');
-    sheet.setAttribute('id', 'essential-style');
-    sheet.innerHTML = '.notessential {display:none;visibility:hidden;}';
+    sheet.innerHTML = '#toggle_essential {padding-left:0.5em;width: 100%;}\n#toggle_essential input {vertical-align: middle;}';
     document.getElementsByTagName('head')[0].appendChild(sheet);
+
+    let opt_done = false;
+    let opt = document.createElement('div');
+    opt.setAttribute('id', 'toggle_essential');
+    opt.innerHTML = '<input id="toggle_essential_checkbox" type="checkbox"> <label for="toggle_essential_checkbox">Show essential messages only</label>';
+    jQuery('#toggle_essential_checkbox', opt).on('change', function(){
+        if (this.checked) {
+            toggle_css.innerHTML = '.notessential {display:none;visibility:hidden;}';
+        } else {
+            toggle_css.innerHTML = '';
+        }
+    });
 
     let ctx = document.getElementById('root');
 
     let ob = new window.MutationObserver(function(events){
+        if (!opt_done) {
+            let el = jQuery('div.chat-input.tw-pd-b-2.tw-pd-x-2');
+            if (el.length) {
+                opt_done = true;
+                el.append(opt);
+            }
+        }
+
         events.forEach(function(ev){
             ev.addedNodes.forEach(function(node){
                 let el = jQuery(node);
@@ -33,8 +55,6 @@
             });
         });
     });
-
-    // TODO: Add element into the end of div.chat-input.tw-pd-b-2.tw-pd-x-2
 
     ob.observe(ctx, {
         childList: true,
