@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Twitch Chatroom Essential
 // @namespace    https://wiki.gslin.org/wiki/TwitchChatroomEssential
-// @version      0.2018.0426.1
+// @version      0.2018.0502.0
 // @description  Show users with badge only.
 // @author       Gea-Suan Lin <darkkiller@gmail.com>
 // @match        https://www.twitch.tv/*
@@ -43,11 +43,12 @@
 
         events.forEach(function(ev){
             ev.addedNodes.forEach(function(node){
-                let el = jQuery(node);
-                if (!el.hasClass('chat-line__message')) {
+                if (!node.classList.contains('chat-line__message')) {
                     return;
                 }
-                if (0 === el.has('a[data-a-target="chat-badge"]').length) {
+                let el = jQuery(node);
+
+                if (0 === el.has('.chat-badge').length) {
                     el.addClass('notessential');
                 }
             });
