@@ -5,7 +5,7 @@
 // @description  Show users with badge only.
 // @author       Gea-Suan Lin <darkkiller@gmail.com>
 // @match        https://www.twitch.tv/*
-// @require      https://code.jquery.com/jquery-3.3.1.slim.min.js
+// @require      https://code.jquery.com/jquery-3.4.0.slim.min.js
 // @grant        none
 // @license      MIT
 // ==/UserScript==
