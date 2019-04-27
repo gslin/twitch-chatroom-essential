@@ -5,7 +5,6 @@
 // @description  Show users with badge only.
 // @author       Gea-Suan Lin <darkkiller@gmail.com>
 // @match        https://www.twitch.tv/*
-// @require      https://code.jquery.com/jquery-3.4.0.slim.min.js
 // @grant        none
 // @license      MIT
 // ==/UserScript==
@@ -23,7 +22,7 @@
     let opt = document.createElement('div');
     opt.setAttribute('id', 'toggle_essential');
     opt.innerHTML = '<input id="toggle_essential_checkbox" type="checkbox"> <label for="toggle_essential_checkbox">Show essential messages only</label>';
-    jQuery('#toggle_essential_checkbox', opt).on('change', () => {
+    opt.querySelector('#toggle_essential_checkbox').addEventListener('change', function() {
         if (this.checked) {
             toggle_css.innerHTML = '.notessential {display:none;visibility:hidden;}';
         } else {
@@ -35,9 +34,9 @@
 
     let ob = new window.MutationObserver(events => {
         if (null === document.getElementById('toggle_essential')) {
-            let el = jQuery('div.chat-input.tw-pd-b-2.tw-pd-x-2');
-            if (el.length) {
-                el.append(opt);
+            let el = document.querySelector('div.chat-input.tw-pd-b-2.tw-pd-x-2');
+            if (el) {
+                el.appendChild(opt);
             }
         }
 
@@ -46,10 +45,9 @@
                 if (!node.classList.contains('chat-line__message')) {
                     return;
                 }
-                let el = jQuery(node);
 
-                if (0 === el.has('.chat-badge').length) {
-                    el.addClass('notessential');
+                if (null === node.querySelector('.chat-badge')) {
+                    node.classList.add('notessential');
                 }
             });
         });
