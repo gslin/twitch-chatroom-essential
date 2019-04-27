@@ -34,7 +34,7 @@
     let ctx = document.getElementById('root');
 
     let ob = new window.MutationObserver(events => {
-        if (0 === jQuery('#toggle_essential').length) {
+        if (null === document.getElementById('toggle_essential')) {
             let el = jQuery('div.chat-input.tw-pd-b-2.tw-pd-x-2');
             if (el.length) {
                 el.append(opt);
