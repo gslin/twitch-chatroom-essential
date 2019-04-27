@@ -23,7 +23,7 @@
     let opt = document.createElement('div');
     opt.setAttribute('id', 'toggle_essential');
     opt.innerHTML = '<input id="toggle_essential_checkbox" type="checkbox"> <label for="toggle_essential_checkbox">Show essential messages only</label>';
-    jQuery('#toggle_essential_checkbox', opt).on('change', function(){
+    jQuery('#toggle_essential_checkbox', opt).on('change', () => {
         if (this.checked) {
             toggle_css.innerHTML = '.notessential {display:none;visibility:hidden;}';
         } else {
@@ -33,7 +33,7 @@
 
     let ctx = document.getElementById('root');
 
-    let ob = new window.MutationObserver(function(events){
+    let ob = new window.MutationObserver(events => {
         if (0 === jQuery('#toggle_essential').length) {
             let el = jQuery('div.chat-input.tw-pd-b-2.tw-pd-x-2');
             if (el.length) {
@@ -41,8 +41,8 @@
             }
         }
 
-        events.forEach(function(ev){
-            ev.addedNodes.forEach(function(node){
+        events.forEach(ev => {
+            ev.addedNodes.forEach(node => {
                 if (!node.classList.contains('chat-line__message')) {
                     return;
                 }
