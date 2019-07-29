@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Twitch Chatroom Essential
 // @namespace    https://wiki.gslin.org/wiki/TwitchChatroomEssential
-// @version      0.20190427.1
+// @version      0.20190729.0
 // @description  Show users with badge only.
 // @author       Gea-Suan Lin <darkkiller@gmail.com>
 // @match        https://www.twitch.tv/*
@@ -30,9 +30,10 @@
         }
     });
 
+    // Install checkbox.
     let ob = new window.MutationObserver(events => {
         if (null === document.getElementById('toggle_essential')) {
-            let el = document.querySelector('div.chat-input.tw-pd-b-2.tw-pd-x-2');
+            let el = document.querySelector('div.chat-input.tw-block.tw-pd-b-1.tw-pd-x-1');
             if (el) {
                 el.appendChild(opt);
             }
