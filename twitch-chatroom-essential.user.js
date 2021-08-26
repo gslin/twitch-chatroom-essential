@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Twitch Chatroom Essential
 // @namespace    https://wiki.gslin.org/wiki/TwitchChatroomEssential
-// @version      0.20210519.0
-// @description  Show users with badge only.
+// @version      0.20210826.0
+// @description  Show users with essential badge(s) only.
 // @author       Gea-Suan Lin <darkkiller@gmail.com>
 // @match        https://www.twitch.tv/*
 // @grant        none
@@ -46,7 +46,20 @@
                     return;
                 }
 
-                if (null === node.querySelector('.chat-badge')) {
+                // Add .notessential class.
+                let n = 0;
+                for (let img of node.querySelectorAll('.chat-badge')) {
+                    if ('GLHF Pledge badge' === img.getAttribute('aria-label')) {
+                        continue;
+                    }
+                    if ('GlitchCon 2020 badge' === img.getAttribute('aria-label')) {
+                        continue;
+                    }
+
+                    n++;
+                }
+
+                if (0 === n) {
                     node.classList.add('notessential');
                 }
             });
