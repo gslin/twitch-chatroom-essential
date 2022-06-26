@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Twitch Chatroom Essential
 // @namespace    https://wiki.gslin.org/wiki/TwitchChatroomEssential
-// @version      0.20210826.0
+// @version      0.20220627.0
 // @description  Show users with essential badge(s) only.
 // @author       Gea-Suan Lin <darkkiller@gmail.com>
 // @match        https://www.twitch.tv/*
@@ -53,6 +53,9 @@
                         continue;
                     }
                     if ('GlitchCon 2020 badge' === img.getAttribute('aria-label')) {
+                        continue;
+                    }
+                    if ('Watching without video badge' === img.getAttribute('aria-label')) {
                         continue;
                     }
 
