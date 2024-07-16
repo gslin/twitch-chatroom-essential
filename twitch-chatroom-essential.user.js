@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Twitch Chatroom Essential
 // @namespace    https://wiki.gslin.org/wiki/TwitchChatroomEssential
-// @version      0.20220723.1
+// @version      0.20240716.0
 // @description  Show users with essential badge(s) only.
 // @author       Gea-Suan Lin <darkkiller@gmail.com>
 // @match        https://www.twitch.tv/*
@@ -49,16 +49,20 @@
         // Add .notessential class.
         let n = 0;
         for (let img of node.querySelectorAll('.chat-badge')) {
-          if ('GLHF Pledge badge' === img.getAttribute('aria-label')) {
+          const al = img.getAttribute('aria-label');
+          if ('GLHF Pledge badge' === al) {
             continue;
           }
-          if ('GlitchCon 2020 badge' === img.getAttribute('aria-label')) {
+          if ('GlitchCon 2020 badge' === al) {
             continue;
           }
-          if ('Watching without audio badge' === img.getAttribute('aria-label')) {
+          if ('Twitch Recap 2023' === al) {
             continue;
           }
-          if ('Watching without video badge' === img.getAttribute('aria-label')) {
+          if ('Watching without audio badge' === al) {
+            continue;
+          }
+          if ('Watching without video badge' === al) {
             continue;
           }
 
