@@ -16,6 +16,7 @@
     'GLHF Pledge badge',
     'GlitchCon 2020 badge',
     'Twitch Recap 2023 badge',
+    'Twitch Recap 2024 badge',
     'Watching without audio badge',
     'Watching without video badge',
   ];
@@ -50,7 +51,7 @@
 
     events.forEach(ev => {
       ev.addedNodes.forEach(node => {
-        if (!node.classList || !node.classList.contains('chat-line__message')) {
+        if (!node.querySelector('div.chat-line__message')) {
           return;
         }
 
