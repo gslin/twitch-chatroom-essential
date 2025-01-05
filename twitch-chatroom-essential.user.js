@@ -12,7 +12,7 @@
 (function() {
   'use strict';
 
-  let toggle_css = document.createElement('style');
+  const toggle_css = document.createElement('style');
   document.getElementsByTagName('head')[0].appendChild(toggle_css);
 
   const sheet = document.createElement('style');
