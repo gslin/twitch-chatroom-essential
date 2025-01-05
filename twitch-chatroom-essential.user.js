@@ -15,11 +15,11 @@
   let toggle_css = document.createElement('style');
   document.getElementsByTagName('head')[0].appendChild(toggle_css);
 
-  let sheet = document.createElement('style');
+  const sheet = document.createElement('style');
   sheet.innerHTML = '#toggle_essential {padding-left:0.5em;width: 100%;}\n#toggle_essential input {vertical-align: middle;}';
   document.getElementsByTagName('head')[0].appendChild(sheet);
 
-  let opt = document.createElement('div');
+  const opt = document.createElement('div');
   opt.setAttribute('id', 'toggle_essential');
   opt.innerHTML = '<input id="toggle_essential_checkbox" type="checkbox"> <label for="toggle_essential_checkbox">Show essential messages only</label>';
   opt.querySelector('#toggle_essential_checkbox').addEventListener('change', function() {
@@ -31,9 +31,9 @@
   });
 
   // Install checkbox.
-  let ob = new window.MutationObserver(events => {
+  const ob = new window.MutationObserver(events => {
     if (null === document.getElementById('toggle_essential')) {
-      let el = document.querySelector('div.chat-input__buttons-container');
+      const el = document.querySelector('div.chat-input__buttons-container');
       if (el) {
         el.insertAdjacentElement('afterend', opt);
         console.debug('toggle_essential installed');
@@ -48,7 +48,7 @@
 
         // Add .notessential class.
         let n = 0;
-        for (let img of node.querySelectorAll('.chat-badge')) {
+        for (const img of node.querySelectorAll('.chat-badge')) {
           const al = img.getAttribute('aria-label');
           if ('GLHF Pledge badge' === al) {
             continue;
