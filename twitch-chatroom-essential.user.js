@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Twitch Chatroom Essential
 // @namespace    https://wiki.gslin.org/wiki/TwitchChatroomEssential
-// @version      0.20250107.4
+// @version      0.20250107.5
 // @description  Show users with essential badge(s) only.
 // @author       Gea-Suan Lin <darkkiller@gmail.com>
 // @match        https://www.twitch.tv/*
@@ -20,6 +20,7 @@
     'Minecraft ',
     'Predicted ',
     'Raging Wolf Helm',
+    'SUBtember ',
     'Twitch Recap ',
     'Watching without ',
   ];
