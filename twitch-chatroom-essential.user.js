@@ -16,6 +16,7 @@
     'Arcane Season 2 Premiere ',
     'GLHF Pledge ',
     'GlitchCon ',
+    'Listening ',
     'Minecraft ',
     'Predicted ',
     'Twitch Recap ',
