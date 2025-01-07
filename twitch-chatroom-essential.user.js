@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Twitch Chatroom Essential
 // @namespace    https://wiki.gslin.org/wiki/TwitchChatroomEssential
-// @version      0.20250107.6
+// @version      0.20250107.7
 // @description  Show users with essential badge(s) only.
 // @author       Gea-Suan Lin <darkkiller@gmail.com>
 // @match        https://www.twitch.tv/*
@@ -24,6 +24,7 @@
     'SUBtember ',
     'Twitch Recap ',
     'Watching without ',
+    'r/place ',
   ];
 
   const toggle_css = document.createElement('style');
