@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Twitch Chatroom Essential
 // @namespace    https://wiki.gslin.org/wiki/TwitchChatroomEssential
-// @version      0.20250107.1
+// @version      0.20250107.2
 // @description  Show users with essential badge(s) only.
 // @author       Gea-Suan Lin <darkkiller@gmail.com>
 // @match        https://www.twitch.tv/*
@@ -13,7 +13,8 @@
   'use strict';
 
   const free_badges = [
-    'GLHF Pledge badge',
+    'Arcane Season 2 Premiere ',
+    'GLHF Pledge ',
     'GlitchCon ',
     'Minecraft ',
     'Predicted ',
